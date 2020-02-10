@@ -1,1 +1,18 @@
-<p>science works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p>Science news</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="news " *ngFor="let item of APIData">
+      <a [href]="item.url" target="_blanc">
+        <img [src]="item.urlToImage" alt=" " />
+        <h5>{{ item.title }}</h5></a
+      >
+      <p>{{ item.publishedAt }}</p>
+    </div>
+  </div>
+</div>

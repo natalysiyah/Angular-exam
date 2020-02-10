@@ -1,1 +1,18 @@
-<p>sport works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p>Sport news</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="news " *ngFor="let item of APIData">
+      <a [href]="item.url">
+        <img [src]="item.urlToImage" alt=" " />
+        <h5>{{ item.title }}</h5></a
+      >
+      <p>{{ item.publishedAt }}</p>
+    </div>
+  </div>
+</div>
