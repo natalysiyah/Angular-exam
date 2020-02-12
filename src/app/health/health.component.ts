@@ -9,7 +9,9 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class HealthComponent implements OnInit {
   APIData: any[];
 
-  apiUrl = `https://newsapi.org/v2/top-headlines?country=ua&category=health&apiKey=18f1c87e444741aca30db0a569bba999`;
+  currentCountry = "ua";
+
+  apiUrl = `https://newsapi.org/v2/top-headlines?country=${this.currentCountry}&category=health&apiKey=18f1c87e444741aca30db0a569bba999`;
   constructor(private http: HttpClient) {}
 
   ngOnInit() {

@@ -2,7 +2,18 @@
   <div class="row justify-content-end">
     <form>
       <div class="form-group">
-        <input class="search" placeholder="country" />
+        <select name="search" class="search">
+          <optgroup label="">
+            <option value=" " selected></option>
+            <option value="ua">УКРАЇНА</option>
+            <option value="ru">РОСІЙСЬКА ФЕДЕРАЦІЯ</option>
+            <option value="au">Australia</option>
+            <option value="jp">ЯПОНІЯ</option>
+            <option value="au">Australia</option>
+          </optgroup>
+        </select>
+        <!-- ua, ru, au australia, jp,fr france-->
+        <!-- <input class="search" placeholder="country" /> -->
         <button type="submit" class="btn--main">Ok</button>
       </div>
     </form>
