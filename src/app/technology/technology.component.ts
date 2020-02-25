@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-
+import { NewsService } from "../news.service";
 @Component({
   selector: "app-technology",
   templateUrl: "./technology.component.html",
@@ -9,13 +8,11 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class TechnologyComponent implements OnInit {
   APIData: any[];
 
-  apiUrl = `https://newsapi.org/v2/top-headlines?country=ua&category=technology&apiKey=18f1c87e444741aca30db0a569bba999`;
-  constructor(private http: HttpClient) {}
+  
+  constructor(private newsService: NewsService) { }
 
   ngOnInit() {
-    this.http.get<any>(this.apiUrl).subscribe(data => {
-      this.APIData = data.articles;
-      console.log("API Data ", this.APIData);
-    });
+    this.newsService.getNews("technology", "us").subscribe(APIData => this.APIData = APIData);
+    console.log("Techno API Data ", this.APIData);
   }
 }

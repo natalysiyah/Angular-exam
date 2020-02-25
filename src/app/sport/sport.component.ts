@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { NewsService } from "../news.service";
+
 
 @Component({
   selector: "app-sport",
@@ -9,13 +10,12 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class SportComponent implements OnInit {
   APIData: any[];
 
-  apiUrl = `https://newsapi.org/v2/top-headlines?country=ua&category=sport&apiKey=18f1c87e444741aca30db0a569bba999`;
-  constructor(private http: HttpClient) {}
+
+
+  constructor(private newsService: NewsService) { }
 
   ngOnInit() {
-    this.http.get<any>(this.apiUrl).subscribe(data => {
-      this.APIData = data.articles;
-      console.log("API Data ", this.APIData);
-    });
-  }
+    this.newsService.getNews("sport", "us").subscribe(APIData => this.APIData = APIData);
+    console.log("Sport API Data ", this.APIData);
+  };
 }
